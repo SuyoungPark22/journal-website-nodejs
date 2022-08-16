@@ -29,11 +29,12 @@ const app = http.createServer(function(request, response){
             response.write(data);
             response.end();
         })
-    // } else if (pathname === "/img"){
-    //     const img_name = queryData.fname;
-    //     response.writeHead(200);
-
-
+    } else if (pathname === "/img"){
+        fs.readFile(`./img/${queryData.fname}`, function(err, data){
+            response.writeHead(200);
+            response.write(data);
+            response.end();
+        })
     }
 })
 
