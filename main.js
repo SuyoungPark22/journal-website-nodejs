@@ -9,6 +9,8 @@ const app = http.createServer(function(request, response){
     const queryData = url.parse(pageURL, true).query;
     const pathname = url.parse(pageURL, true).pathname;
 
+    console.log({queryData: queryData, pathname: pathname});
+
     if (pathname === "/"){
         if (queryData.id === undefined){    //home page
             fs.readFile("./lib/pagelist.json", 'utf8', function(err, data){
@@ -21,6 +23,17 @@ const app = http.createServer(function(request, response){
                 response.end();
             })
         }
+    } else if (pathname === "/App.css"){
+        fs.readFile("./lib/App.css", 'utf8', function(err, data){
+            response.writeHead(200);
+            response.write(data);
+            response.end();
+        })
+    // } else if (pathname === "/img"){
+    //     const img_name = queryData.fname;
+    //     response.writeHead(200);
+
+
     }
 })
 
