@@ -23,14 +23,26 @@ const app = http.createServer(function(request, response){
                 response.end();
             })
         }
-    } else if (pathname === "/App.css"){
-        fs.readFile("./lib/App.css", 'utf8', function(err, data){
+    } else if (pathname === "/home.css"){
+        fs.readFile("./lib/home.css", 'utf8', function(err, data){
             response.writeHead(200);
             response.write(data);
             response.end();
         })
     } else if (pathname === "/img"){
         fs.readFile(`./img/${queryData.fname}`, function(err, data){
+            response.writeHead(200);
+            response.write(data);
+            response.end();
+        })
+    } else if (pathname === "/contents"){
+        const html = template.contentsHTML();
+
+        response.writeHead(200);
+        response.write(html);
+        response.end();
+    } else if (pathname === "/contents.css"){
+        fs.readFile("./lib/home.css", 'utf8', function(err, data){
             response.writeHead(200);
             response.write(data);
             response.end();

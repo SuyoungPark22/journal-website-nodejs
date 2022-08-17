@@ -12,6 +12,11 @@ body {
   margin-right: auto;
 }
 
+.Header h1 a{
+  text-decoration: none;
+  color: black;
+}
+
 .container {
   margin-left: 15px;
   margin-right: 15px;
@@ -42,6 +47,11 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
   font-family: Roboto, sans-serif;
+}
+
+.nav-element a {
+  text-decoration: none;
+  color: black;
 }
 
 .Article {
