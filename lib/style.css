@@ -26,9 +26,12 @@ body {
   font-family: Felix Titling, Times, Times New Roman, Georgia, serif;
 }
 
-.Nav { 
+.Nav .nav-line-top {
   border-top: 1px lightgray solid;
-  border-bottom: 3px rgba(32, 31, 31, 0.637) solid;
+}
+
+.Nav .nav-line-bottom {
+  border-bottom: 3px rgb(32, 30, 30) solid;
 }
 
 .Nav .nav-maxwidth {
@@ -37,12 +40,19 @@ body {
   margin-right: auto;
 }
 
-.Nav .nav-maxwidth .container #nav-grid {
+.Nav .nav-current {
+  font-family: Roboto, sans-serif;
+  color: rgba(32, 31, 31, 0.637); 
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.Nav #nav-grid {
   display: grid;
   grid-template-columns: 190px 150px 150px;
 }
 
-.Nav .nav-maxwidth .container #nav-grid .nav-element {
+.Nav #nav-grid .nav-element {
   margin: 0;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -54,42 +64,40 @@ body {
   color: black;
 }
 
-.Article {
+.Home {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
 }
 
-
-.Article .container #main-grid {
+.Home #home-main-grid {
   display: grid;
   grid-template-columns: 2fr 3fr;
 }
 
-.Article .container #main-grid .main-text {
+.Home #home-main-grid .main-text {
   background-color: #29303c;
 }
 
-.Article .container #main-grid .main-text h2 {
+.Home #home-main-grid .main-text h2 {
   font-family: Felix Titling, Times, Times New Roman, Georgia, serif;
   color: white;
   margin: 30px;
   font-size: 30px;
 }
 
-.Article .container #main-grid .main-text p {
+.Home #home-main-grid .main-text p {
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   margin: 30px;
 }
 
-.Article .container #main-grid .main-image {
+.Home #home-main-grid .main-image {
   width: 100%;
-  height: 100%;
 }
 
-.Article .container #list-grid {
+.Home #home-list-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 15px;
@@ -97,39 +105,54 @@ body {
   margin-top: 15px;
 }
 
-.List {
+/* .home-list {
   border-bottom: 1px lightgray solid;
-}
+} */
 
-.List .list-subgrid .list-image {
+.Home .home-list-subgrid .home-list-image {
   width: 100%;
-  height: 100%;
 }
 
-.List .list-subgrid h3 {
+.Home .home-list-subgrid h3 {
   font-family: Felix Titling, Times, Times New Roman, Georgia, serif;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.List .list-subgrid .list-description {
+.Home .home-list-subgrid .home-list-description {
   font-family: Arial, Helvetica, sans-serif; 
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.List .list-subgrid .list-author {
+.Home .home-list-subgrid .home-list-author {
   font-family: Arial, Helvetica, sans-serif;
   color:rgba(32, 31, 31, 0.637); 
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-.List .list-subgrid .list-date {
+.Home .home-list-subgrid .home-list-date {
   font-family: Arial, Helvetica, sans-serif; 
   font-weight: bold;
   margin-top: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
+
+  padding-bottom: 15px;
+  border-bottom: 1px lightgray solid;
+}
+
+.Contents {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.Contents .container h2 {
+  font-family: Felix Titling, Times, Times New Roman, Georgia, serif;
+  font-size: 25px;
+  margin: 0;
 }
 
 .Footer {

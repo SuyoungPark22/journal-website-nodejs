@@ -23,8 +23,8 @@ const app = http.createServer(function(request, response){
                 response.end();
             })
         }
-    } else if (pathname === "/home.css"){
-        fs.readFile("./lib/home.css", 'utf8', function(err, data){
+    } else if (pathname === "/style.css"){
+        fs.readFile("./lib/style.css", 'utf8', function(err, data){
             response.writeHead(200);
             response.write(data);
             response.end();
@@ -36,17 +36,12 @@ const app = http.createServer(function(request, response){
             response.end();
         })
     } else if (pathname === "/contents"){
-        const html = template.contentsHTML();
+        //need to read file
+        const html = template.contentsHTML(lists);
 
         response.writeHead(200);
         response.write(html);
         response.end();
-    } else if (pathname === "/contents.css"){
-        fs.readFile("./lib/home.css", 'utf8', function(err, data){
-            response.writeHead(200);
-            response.write(data);
-            response.end();
-        })
     }
 })
 
