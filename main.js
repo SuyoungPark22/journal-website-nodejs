@@ -13,7 +13,7 @@ const app = http.createServer(function(request, response){
 
     if (pathname === "/"){
         if (queryData.id === undefined){    //home page
-            fs.readFile("./lib/pagelist.json", 'utf8', function(err, data){
+            fs.readFile("./lib/home.json", 'utf8', function(err, data){
                 const dataParsed = JSON.parse(data);
                 const html = template.homeHTML(dataParsed.main, dataParsed.list1, dataParsed.list2, dataParsed.list3, dataParsed.list4, dataParsed.list5);     
                 
@@ -36,12 +36,15 @@ const app = http.createServer(function(request, response){
             response.end();
         })
     } else if (pathname === "/contents"){
-        //need to read file
-        const html = template.contentsHTML(lists);
+        fs.readFile("./lib/contents.json", function(err, data){
+            const dataParsed = JSON.parse(data);
+            const lists = dataParsed.contents;  //원소가 10개인 리스트
+            const html = template.contentsHTML(lists);
 
-        response.writeHead(200);
-        response.write(html);
-        response.end();
+            response.writeHead(200);
+            response.write(html);
+            response.end();
+        })        
     }
 })
 
