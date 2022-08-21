@@ -12,17 +12,46 @@ const app = http.createServer(function(request, response){
     console.log({queryData: queryData, pathname: pathname});
 
     if (pathname === "/"){
-        if (queryData.id === undefined){    //home page
-            fs.readFile("./lib/home.json", 'utf8', function(err, data){
-                const dataParsed = JSON.parse(data);
-                const html = template.homeHTML(dataParsed.main, dataParsed.list1, dataParsed.list2, dataParsed.list3, dataParsed.list4, dataParsed.list5);     
+        // if (queryData.id === undefined){    //home page
+        //     fs.readFile("./lib/home.json", 'utf8', function(err, data){
+        //         const dataParsed = JSON.parse(data);
+        //         const html = template.homeHTML(dataParsed.main, dataParsed.list1, dataParsed.list2, dataParsed.list3, dataParsed.list4, dataParsed.list5);     
                 
-                response.writeHead(200);
-                // response.write(JSON.stringify(dataParsed));
-                response.write(html);
-                response.end();
-            })
-        }
+        //         response.writeHead(200);
+        //         // response.write(JSON.stringify(dataParsed));
+        //         response.write(html);
+        //         response.end();
+        //     })
+        // }
+        fs.readFile("./lib/articles.json", 'utf8', function(err, data){
+            const dataParsed = JSON.parse(data);
+            const fnames = dataParsed.articles;
+            const html = template.homeHTML(fnames);
+
+            response.writeHead(200);
+            response.write(html);
+            response.end();
+        })
+    } else if (pathname === "/contents"){   //contents list
+        fs.readFile("./lib/contents.json", function(err, data){
+            const dataParsed = JSON.parse(data);
+            const lists = dataParsed.contents;  //원소가 10개인 리스트
+            const html = template.contentsHTML(lists);
+
+            response.writeHead(200);
+            response.write(html);
+            response.end();
+        })        
+    } else if (pathname === "/article"){    //read article
+        fs.readFile(`./data/${queryData.fname}`, 'utf8', function(err, data){
+            const dataParsed = JSON.parse(data);
+            const html = template.articleHTML(dataParsed);
+
+            response.writeHead(200);
+            response.write(html);
+            response.end();
+        })
+
     } else if (pathname === "/style.css"){
         fs.readFile("./lib/style.css", 'utf8', function(err, data){
             response.writeHead(200);
@@ -35,17 +64,7 @@ const app = http.createServer(function(request, response){
             response.write(data);
             response.end();
         })
-    } else if (pathname === "/contents"){
-        fs.readFile("./lib/contents.json", function(err, data){
-            const dataParsed = JSON.parse(data);
-            const lists = dataParsed.contents;  //원소가 10개인 리스트
-            const html = template.contentsHTML(lists);
-
-            response.writeHead(200);
-            response.write(html);
-            response.end();
-        })        
-    }
+    } 
 })
 
 app.listen(4000);

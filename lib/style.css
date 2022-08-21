@@ -71,6 +71,10 @@ body {
   margin-top: 15px;
 }
 
+.Home .container a {
+  text-decoration: none;
+}
+
 .Home #home-main-grid {
   display: grid;
   grid-template-columns: 2fr 3fr;
@@ -116,12 +120,14 @@ body {
 
 .Home .home-list-subgrid h3 {
   font-family: Felix Titling, Times, Times New Roman, Georgia, serif;
+  color: black;
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .Home .home-list-subgrid .home-list-description {
   font-family: Arial, Helvetica, sans-serif; 
+  color: black;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -136,6 +142,7 @@ body {
 .Home .home-list-subgrid .home-list-date {
   font-family: Arial, Helvetica, sans-serif; 
   font-weight: bold;
+  color: black;
   margin-top: 5px;
   margin-bottom: 5px;
 }
