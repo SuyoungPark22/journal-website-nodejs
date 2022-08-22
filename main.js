@@ -1,7 +1,6 @@
 const fs = require('fs');
 const http = require('http');
 const url = require('url');
-// const { homeHTML } = require('./lib/template.js');
 const template = require('./lib/template.js');
 
 const app = http.createServer(function(request, response){
@@ -33,10 +32,10 @@ const app = http.createServer(function(request, response){
             response.end();
         })
     } else if (pathname === "/contents"){   //contents list
-        fs.readFile("./lib/contents.json", function(err, data){
+        fs.readFile("./lib/articles.json", function(err, data){
             const dataParsed = JSON.parse(data);
-            const lists = dataParsed.contents;  //원소가 10개인 리스트
-            const html = template.contentsHTML(lists);
+            const fnames = dataParsed.articles;
+            const html = template.contentsHTML(fnames);
 
             response.writeHead(200);
             response.write(html);
