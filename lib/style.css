@@ -229,6 +229,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .Article .article-date {
@@ -241,7 +242,7 @@ body {
 .Article .article-title {
   font-family: Felix Titling, Times, Times New Roman, Georgia, serif;
   color: black;
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -252,7 +253,7 @@ body {
   color:black; 
   font-weight: bold;
   margin-top: 20px;
-  font-size: 18px; 
+  /* font-size: 15px;  */
 }
 
 .Article .article-author {
@@ -265,7 +266,7 @@ body {
 .Article .article-text {
   font-family: Arial, Helvetica, sans-serif; 
   color:black;
-  font-size: 18px;
+  /* font-size: 15px; */
 }
 
 .Footer {
